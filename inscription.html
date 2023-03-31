@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajout Produit</title>
+    <link rel="stylesheet" href="siteweb.css">
+</head>
+<body>
+
+<!-- Permet d'avoir le logo en haut pour pouvoir revenir à la page principale -->
+    <nav class="navinscription">
+        <a  class="sneaky" href="Index.html"><h1>SNEAKYY</h1></a>
+    </nav>
+<!-- On définit une classe dans une division pour le formulaire -->
+    <div class="container">
+        <h2>Inscription</h2>
+        <!-- Formulaire d'inscription -->
+    <form action="inscription_traitement.php" method="post" autocomplete="on">
+
+        <label for="nom" class="label">Nom :</label><br>
+        <input type="text" id="nom" name="nom" class="input" required><br>
+      
+        <label for="prenom" class="label">Prénom :</label><br>
+        <input type="text" id="prenom" name="prenom" class="input" required><br>
+
+        <label for="tel" class="label">N° Téléphone</label><br>
+        <input type="tel" id="tel" name="tel" class="input" maxlength="10" required><br>
+      
+        <label for="email" class="label">Adresse e-mail :</label><br>
+        <input type="email" id="email" name="email" class="input"required><br>
+      
+        <label for="password" class="label">Mot de passe :</label><br>
+        <input type="password" id="password" name="password" class="input"required><br>
+
+        <label for="adresse" class="label">Adresse :</label><br>
+        <input type="text" id="adresse" name="adresse" class="input" required><br>
+      
+        <label for="ville" class="label">Ville :</label><br>
+        <input type="text" id="ville" name="ville" class="input"><br>
+      
+        <label for="cp" class="label">Code postal :</label><br>
+        <input type="number" id="cp" name="cp" class="input" maxlength="5" required><br>
+      
+        <button class="boutonform" type="submit" value="signin">Inscription</button><br>
+      </form>
+    </div>
+
+</body>
+</html>

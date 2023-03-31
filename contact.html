@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réclamation</title>
+    <link rel="stylesheet" href="siteweb.css">
+    <script src="https://kit.fontawesome.com/5d94f6b61f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <a  class="sneaky" href="Index.html"><h1>SNEAKYY</h1></a>
+        <!-- Pour différents trucs en haut -->
+        <div class="onglet">
+            <a href="ajout_produit.html" class="lien"><p class="link">Ajout Produit</p></a>
+            <a href="soon.html" class="lien"><p class="link">Bientôt Disponible</p></a>
+            <a href="sneakers.html" class="lien"><p class="link">Sneakers</p></a>
+            <a href="contact.html" class="lien"><p class="link">Nous contacter</p></a>
+
+            <form>
+               <input type="search" placeholder="Rechercher">
+            </form>
+            <p><i class="fa-sharp fa-solid fa-heart "></i></p>
+            <a class="lien" href="panier.php"><p><i class="fa-sharp fa-solid fa-cart-shopping"></i></p></a>
+            <a class="lien" href="connexion.php"><p><i class="fa-solid fa-user"></i></p></a>
+        </div>
+    </nav>
+    <div class="container">
+        <h2>Formulaire de contact</h2>
+    <form name="contact" action="reponseAuto.php" method="post" autocomplete="on">
+        <!-- Nom prénom -->
+        <label class="label" for="name">Nom et Prénom : </label><br>
+        <input type="text" id="name"  name="name"  class="input" placeholder="Entrez votre nom et prénom" required><br>
+
+        <!-- Email -->
+        <label class="label" for="email">Adresse Mail : </label><br>
+        <input type="email" id="email" name="email" class="input" placeholder="Entrez votre email" required><br>
+
+        <!-- Objet de la réclamation -->
+        <label class="label" for="objet">Objet de votre demande : </label><br>
+            <select list="objet" name="objet" id="objet" class="input" style="width: 96%;">
+                        <option align="center" value="">--Sélectionnez--</option>
+                        <option value="colispasrecu" name="colispasrecu">Je n'ai pas reçu mon colis</option>
+                        <option value="colisvide" name="colisvide">Mon colis était vide</option>
+                        <option value="mauvaismodel" name="mauvaismodel">J'ai recu le mauvais modèle de sneakers</option>
+                        <option value="wrongsize" name="wrongsize">Je n'ai pas reçu la bonne taille de sneakers</option>
+                        <option value="autres" name="autres">Autres</option>
+            </select>
+            <br>
+
+        <!-- Numéro de commande -->
+        <label class="label" for="n_commande">Numéro de commande : </label><br>
+        <input type="number" id="n_commande" name="n_commande" class="input" placeholder="Entrez votre numéro de commande"><br>
+
+        <!-- Commentaire -->
+        <label class="label" for="commentaire">Commentaire :</label><br>
+        <textarea id="commentaire" name="commentaire" class="input" rows="5" placeholder="Décrivez votre problème en quelques lignes"></textarea><br>
+
+        <!-- Envoyer -->
+        <button class="boutonform" type="submit" value="submit">Envoyer</button>
+        <button class="boutonform" type="reset" value="reset">Effacer</button>
+
+    </form>
+    </div>
+</body>
+</html>

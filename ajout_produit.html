@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajout Produit</title>
+    <link rel="stylesheet" href="siteweb.css">
+</head>
+<body>
+
+<!-- Permet d'avoir le logo en haut pour pouvoir revenir à la page principale -->
+    <nav class="navinscription">
+        <a  class="sneaky" href="Index.html"><h1>SNEAKYY</h1></a>
+    </nav>
+<!-- On définit une classe dans une division pour le formulaire -->
+    <div class="container">
+        <h2>Ajout Produit</h2>
+        <!-- Formulaire d'inscription -->
+    <form action="ajout_produit_traitement.php" method="post" autocomplete="on">
+
+        <label for="SKU" class="label">SKU</label><br>
+        <input type="text" id="SKU" name="SKU" class="input" required><br>
+      
+        <label for="marque" class="label">Marque :</label><br>
+        <input type="text" id="marque" name="marque" class="input" required><br>
+
+        <label for="modele" class="label">Modèle : </label><br>
+        <input type="text" id="modele" name="modele" class="input" required><br>
+      
+        <label for="nom" class="label">Nom :</label><br>
+        <input type="text" id="nom" name="nom" class="input" required><br>
+      
+        <label for="prix" class="label">Prix :</label><br>
+        <input type="int" id="prix" name="prix" class="input"required><br>
+
+        <label for="taille" class="label">Taille :</label><br>
+        <input type="number" id="taille" name="taille" class="input" required><br>
+
+        <label for="photo" class="label">Photo :</label><br>
+        <input type="file" id="photo" name="photo" class="input" required><br><br>
+      
+        <label for="stock" class="label">Stock :</label><br>
+        <input type="text" id="stock" name="stock" class="input"><br>
+      
+      
+        <button class="boutonform" type="submit" value="add">Ajout Produit</button><br>
+      </form>
+    </div>
+
+</body>
+</html>

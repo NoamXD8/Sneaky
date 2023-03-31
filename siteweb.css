@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+.sneaky{
+    text-decoration: none;
+    color: black;
+}
+
+/* Nav Bar*/
+nav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between ;
+    padding: 20px;
+    background-color: white;
+    /* Permet de laisser la barre de nav en desceandant */
+    position: sticky;
+    top:0;
+
+}
+nav h1{
+    font-size: 20px;
+
+}
+
+nav .onglet{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav .onglet p{
+    font-size: 16px;
+    margin-right:25px ;
+    cursor: pointer;
+}
+
+nav .onglet input{
+    margin: 8px 20px;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background-color: lightgrey;
+    /* outline: none; permet d'enlever la couleur bleu autour */
+}
+
+/* Permet de ne pas avoir de déco autour des liens en haut */
+nav .onglet .lien{
+    text-decoration: none;
+    color: black;
+}
+
+/* Fin de la barre de naviguation */
+
+/* Header */
+header{
+    display: flex;
+    justify-content: center;
+}
+
+header h1{
+    font-size: 45px;
+    text-align: center;
+}
+/* Fin du Header */
+
+
+/* Cart */
+.principale{
+    margin: 20px;
+    margin-top: 80px;   /* Margin top permet de créer de l'espace au dessus */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.carts{
+    display: flex;
+    /*  wrap sert a empiler si resolutions trop petites */
+    flex-wrap: wrap;
+
+}
+
+.carts .cart{
+    margin-right: 20px;
+    cursor: pointer;
+
+}
+
+.carts .cart img{
+    width: 400px;
+}
+
+/* .carts .cart .cart-header{
+    display: flex;
+    flex-wrap: wrap;
+    /* Mettre un espace entre titre et prix*
+    justify-content: space-between;
+} */
+
+
+/* Vidéo */
+
+.principale .video{
+    margin-top: 80px;
+    width: 90%;
+}
+
+.principale .video iframe{
+    border: none;
+    border-radius: 10px;
+    width: 91%;    /*avec cela om occupe 91% des 90% de la classe vidéos*/
+    height: 450px;
+}
+
+/* End vidéo */
+
+/* footer */
+.footer{
+    margin-top:50px ;
+    padding: 20px;
+    background-color: black;
+    color: lightgrey;
+    /*flex-wrap: wrap;    /*aligne les resaux et contacter*/
+    
+}
+
+.footer .contact{
+    display: flex;  /*aligne les icones */
+}
+
+.footer .contact p{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+
+footer h4{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+footer a{
+    color: lightgray;
+    text-decoration: none;
+}
+
+/* Paiement */
+.footer .paiement{
+    display: flex;
+}
+
+.footer .paiement p{
+    margin-right: 20px;
+}
+
+/* Responsive */
+@media screen and (maxwidth:640px){
+    nav .onglet .link, nav h1{
+        display: none;
+    }
+    .carts .cart img{
+        width: 300px;
+    }
+}
+
+
+/* Formulaire de contact */
+h2{
+    text-align: center;
+
+}
+/* Input */
+.input{
+    margin: 10px 8px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: lightgrey;
+    width: 90%;
+}
+
+.label{
+    margin: 10px 8px;
+}
+
+.container{
+    box-sizing : border-box;
+    border-radius:5px;
+    background-color:#f2f2f2;
+    padding:20px;
+    width: 100%;
+    /* redéfinition 400 + 2*20 */
+    max-width: 440px;
+    margin: auto;
+}
+
+/* Bouton */
+.boutonform {
+    margin: 10px 8px;
+    width: 120px;
+    height: 30px;
+    background: lightgray;
+    color: black;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    /*box-shadow: 5px 5px 5px #eee;*/
+    text-shadow:none;
+    font-weight: bold;
+    }
+    
+.boutonform:hover {
+    background: gray;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    /*box-shadow: 5px 5px 5px #eee;*/
+    text-shadow:none;
+    
+    }
+/* Fin de bouton */
+
+/* Pour pas qu'il dépasse du container */
+textarea{
+    max-width: 90%;
+    font-family: 'Open Sans', sans-serif;
+}
+/* Fin de formulaire de contact */
+
+.navinscription{
+    position: relative; /*sinon ca rendait trop bizarre avec la barre en sticky*/
+}
+
+/* Page Produit */
+
+table{
+    margin: 50px 10px;
+}
+
+td{
+    font-size: 30px;
+}
+
+/* Fin page Produit */
+
+
+
+/* Confirmation Inscription */
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+}
+.login-form form {
+    margin-bottom: 15px;
+    background: #f7f7f7;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {        
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+/* Connexion et Inscription */
+
+/* Connexion */
+.confirmation-message {
+    background-color: #e0f0ff;
+    border-left: 5px solid #04C4FC;
+    padding: 10px;
+    margin: 20px;
+  }
+  
+.confirmation-message-content {
+    margin-left: 10px;
+  }
+  
+.confirmation-message h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+.confirmation-message p {
+    color: #333;
+    font-size: 18px;
+    margin-top: 0;
+  }
+/* Fin de connexion */
+
+/* Connnexion invalides */
+.unconfirmation-message {
+    background-color: #ff4a4a;
+    border-left: 5px solid #b30000;
+    padding: 10px;
+    margin: 20px;
+  }
+  
+.unconfirmation-message-content {
+    margin-left: 10px;
+  }
+  
+.unconfirmation-message h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  
+.unconfirmation-message p {
+    color: #333;
+    font-size: 18px;
+    margin-top: 0;
+  }
+/* Fin de connexion invalides */
+/* Fin connexion et Inscription */
+
+
+/* Profil */
+.profil {
+    padding: 20px 20px;
+}
+
+.lien{
+    text-decoration: none;
+    color: black;
+}
+
+/* Réponse auto */
+
+.boutonauto {
+    margin: 10px 8px;
+    width: 250px;
+    height: 30px;
+    background: lightgray;
+    color: black;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    /*box-shadow: 5px 5px 5px #eee;*/
+    text-shadow:none;
+    font-weight: bold;
+    }
+    
+.boutonauto:hover {
+    background: gray;
+    color: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    /*box-shadow: 5px 5px 5px #eee;*/
+    text-shadow:none;
+    
+    }
+/* Fin de boutonauto */
+
+/* Panier */
+
+/* Styles pour le conteneur du panier */
+.cart-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Styles pour la liste des produits dans le panier */
+  .cart-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Styles pour chaque élément de produit dans la liste du panier */
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    
+  }
+  
+  /* Styles pour l'image de produit dans chaque élément de produit */
+  .cart-item img {
+    width: 20%;
+    height: 20%;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  /* Styles pour le nom de produit dans chaque élément de produit */
+  .cart-item .name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  /* Styles pour le prix de produit dans chaque élément de produit */
+  .cart-item .price {
+    font-size: 16px;
+  }
+
+  .cart-item .size {
+    font-size: 15px;
+  }
+  
+  /* Styles pour le bouton de suppression dans chaque élément de produit */
+  .cart-item .remove-button {
+    border: none;
+    background-color: transparent;
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  /* Styles pour le total du panier */
+  .cart-total {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+
+/* Fin Panier */
