@@ -5,6 +5,7 @@ Francais 🇫🇷 :<br>
 Salut je vous présente mon site web permetttant d'acheter des sneakers(simulation) codé en HTML,CSS et PHP avec des requètes SQL et une connexion avec une Base De Données via phpmyadmin et Mamp.
 Sneakyy n'est pas sécurisé et pas protégé contre les attaques...
 Sneakyy rencontre encore quelque bug que je liste dans le fichier 'issue'. Si vous arrivez à les corriger n'hésitez pas à me contacter !
+
 Avant toute choses lire Issues et Wiki ! Merci !
 
 English 🇬🇧🇺🇸 :<br>
