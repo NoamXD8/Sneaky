@@ -1,3 +1,5 @@
+<!-- BOULZE et GROSSMAN -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,15 +16,17 @@
         <a  class="sneaky" href="Index.html"><h1>SNEAKYY</h1></a>
         <!-- Pour différents trucs en haut -->
         <div class="onglet">
+
+            <!-- Faire un truc php pour id client =1 pour ajout produit -->
             <a href="ajout_produit.html" class="lien"><p class="link">Ajout Produit</p></a>
             <a href="soon.html" class="lien"><p class="link">Bientôt Disponible</p></a>
             <a href="sneakers.html" class="lien"><p class="link">Sneakers</p></a>
             <a href="contact.html" class="lien"><p class="link">Nous contacter</p></a>
 
-            <form>
-               <input type="search" placeholder="Rechercher">
+            <form method="GET" action="search_traitement.php">
+               <input type="search" name="search" placeholder="Rechercher">
             </form>
-            <p><i class="fa-sharp fa-solid fa-heart "></i></p>
+            <a class="lien" href="favori.php"><p><i class="fa-sharp fa-solid fa-heart "></i></p></a>
             <a class="lien" href="panier.php"><p><i class="fa-sharp fa-solid fa-cart-shopping"></i></p></a>
             <a class="lien" href="connexion.php"><p><i class="fa-solid fa-user"></i></p></a>
         </div>

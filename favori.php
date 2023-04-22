@@ -1,3 +1,5 @@
+<!-- BOULZE et GROSSMAN -->
+
 <link rel="stylesheet" href="siteweb.css">
 <script src="https://kit.fontawesome.com/5d94f6b61f.js" crossorigin="anonymous"></script>
 <title>Favori</title>
@@ -42,7 +44,7 @@ $select = "SELECT id_client FROM Client WHERE Email = '$email'";
 $result = mysqli_query($idcon, $select);
 $id_client = mysqli_fetch_row($result)[0];
 
-// Récupérer les favoris du client en faisant un join entre les 2 tables Sneakers et Favori
+// Récupérer les favoris du client en faisant un JOIN entre les 2 tables Sneakers et Favori
 $query = "SELECT Sneakers.Nom, Sneakers.Photo, Sneakers.Taille, Sneakers.id_sneakers, Sneakers.Lien FROM Favori INNER JOIN Sneakers ON Favori.id_sneakers = Sneakers.id_sneakers WHERE Favori.id_client = $id_client";
 $result1 = mysqli_query($idcon, $query);
 
@@ -53,6 +55,7 @@ echo '<h2>Mes Favoris</h2>';
 echo '<ul class="favori-list">';
 //On va ajouter une liste pour chaque sneakers en favori
 while ($row = mysqli_fetch_assoc($result1)) {
+// On récupère chaque ligne des résultats de la requête SQL et on l'affiche à travers une boucle "while"
     echo '<li class="favori-item">
         <a href="' . $row['Lien'] . '"><img src="' . $row['Photo'] . '" alt="' . $row['Nom'] . '"></a>            
             <div>' . $row['Nom'].'</div>

@@ -1,3 +1,5 @@
+<!-- BOULZE et GROSSMAN -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,11 +20,9 @@
             <a href="soon.html" class="lien"><p class="link">Bientôt Disponible</p></a>
             <a href="sneakers.html" class="lien"><p class="link">Sneakers</p></a>
             <a href="contact.html" class="lien"><p class="link">Nous contacter</p></a>
-
+        <!-- On récupère les recherches avec la méthode GET car pas confidentielles -->
             <form method="GET" action="search_traitement.php">
                <input type="search" name="search" placeholder="Rechercher">
-               <!-- <button type="submit" style="display:none;"></button> -->
-               <!-- <p><i class="fa-solid fa-magnifying-glass" onclick="document.querySelector('button[type=submit]').click()"></i></p> -->
             </form>
             <a class="lien" href="favori.php"><p><i class="fa-sharp fa-solid fa-heart "></i></p></a>
             <a class="lien" href="panier.php"><p><i class="fa-sharp fa-solid fa-cart-shopping"></i></p></a>
@@ -48,8 +48,10 @@ $result = mysqli_query($idcon, $sql);
 
 //On vérifie si il y a un résultat avec la méthode num_rows qui est égale au nombre de ligne renvoyé par le result.
 if(mysqli_num_rows($result) == 0) {
+    // si  == 0 alors cela veut dire qu'il n'y a pas de résultats
     echo '<div class="principale"><p>Pas de résultats correspondant à votre recherche.</p></div>';
 } else {
+    //sinon on affiche tous les détails des résultats de la requete avec $row
     echo  '<div class="principale"><div class="carts">';
     while ($row = mysqli_fetch_assoc($result)) {
         echo '<div class="cart">
@@ -64,10 +66,6 @@ if(mysqli_num_rows($result) == 0) {
 }
 
 ?>
-<!-- Ligne 52 : Lien caché derrière l'image, le lien est stocké dans la BDD -->
-
-
-
-
+<!--Ligne 58 : Lien caché derrière l'image, le lien est stocké dans la BDD -->
 
 </body>

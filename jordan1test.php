@@ -1,3 +1,5 @@
+<!-- BOULZE et GROSSMAN -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -32,10 +34,10 @@ if(!$idcon){
             <a href="sneakers.html" class="lien"><p class="link">Sneakers</p></a>
             <a href="contact.html" class="lien"><p class="link">Nous contacter</p></a>
 
-            <form>
-               <input type="search" placeholder="Rechercher">
+            <form method="GET" action="search_traitement.php">
+               <input type="search" name="search" placeholder="Rechercher">
             </form>
-            <p><i class="fa-sharp fa-solid fa-heart "></i></p>
+            <a class="lien" href="favori.php"><p><i class="fa-sharp fa-solid fa-heart "></i></p></a>
             <a class="lien" href="panier.php"><p><i class="fa-sharp fa-solid fa-cart-shopping"></i></p></a>            
             <a class="lien" href="connexion.php"><p><i class="fa-solid fa-user"></i></p></a>
         </div>
@@ -44,7 +46,7 @@ if(!$idcon){
     <!-- End nav bar -->
     <table>
         <tr>
-            <td rowspan="5"><img src="Images/aj1lostandfound.webp" style="width: 90%;"></td>
+            <td rowspan="6"><img src="Images/aj1lostandfound.webp" style="width: 90%;"></td>
             <td>Jordan 1 Lost & Found</td>
         </tr>
 
@@ -57,17 +59,16 @@ if(!$idcon){
     </tr>
         <tr>
         <form method="post">
-            <td><select class="input" name="taille" id="taille">
-                <option value="38">38</option>
-                <option value="39">39</option>
-                <option value="40">40</option>
-                <option value="41">41</option>
-                <option value="42">42</option>
-                <option value="43">43</option>
-                <option value="44">44</option>
-                <option value="45">45</option>
-                <!-- action='jordan1test.php' -->
-            </select></td>
+        <?php 
+            $requet_stock= "SELECT Taille, Stock FROM Sneakers WHERE Nom='Jordan 1 Lost and Found'";
+            $result = mysqli_query($idcon, $requet_stock); 
+            echo '<td><select class="input" name="taille" id="taille">';     
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value="' . $row['Taille'] . '">' . $row['Taille'] . ' - Stock : ' . $row['Stock'] . '</option>';
+
+            }
+            echo '</select></td>';
+            ?>
 
 <!-- php -->
         </tr>
@@ -100,7 +101,58 @@ if(!$idcon){
                     //header('refresh: 1 ; url= panier.php');
 					}
 			?>
+        <td></tr>
+
+        <!-- Ajout en Favori -->
+        <tr><td>
+            <form method="post">
+                <input type="hidden" name="id_sneakers" value="<?php echo $id_sneakers; ?>">
+                <button type="submit" class="boutonfavori" name="add_to_favorites"><i class="fa-solid fa-heart fa-2x"></i></button>
+             </form>
         </td></tr>
+
+<?php 
+        if (isset($_POST['add_to_favorites'])) {
+            if (isset($_POST["taille"])) {
+                $taille=$_POST["taille"];
+            
+            //On sélectionne ce quon veut dans la BDD donc l'id sneakers
+            $requet= "SELECT id_sneakers FROM Sneakers WHERE Nom ='Jordan 1 Lost and Found' and Taille = '$taille'";
+            $result = mysqli_query($idcon, $requet);
+            $id_sneakers=mysqli_fetch_row($result)[0];
+        }
+
+            // Récupérer l'id du membre à partir de l'email stocké dans la session
+            $email = $_SESSION['email'];
+            $select = "SELECT id_client FROM Client WHERE Email = '$email'";
+            $result = mysqli_query($idcon, $select);
+            $id_client = mysqli_fetch_row($result)[0];
+
+            // Vérifiez si la paire de chaussures est déjà dans les favoris
+            $query1 = "SELECT * FROM Favori WHERE id_sneakers = $id_sneakers AND id_client = $id_client";
+            $result = mysqli_query($idcon, $query1);
+            if (mysqli_num_rows($result) > 0) {
+                // Si La paire de chaussures est déjà dans les favoris
+                echo '<div class="confirmation-message">
+                        <div class="confirmation-message-content">
+                            <p>Cette paire de chaussures est déjà dans vos favoris.</p>
+                    </div></div>';
+            } else {
+                // Si La paire de chaussures n'est pas encore dans les favoris
+                //on fait une requete SQL pour insérer l'id du client et l'id de la sneakers dans la table favori
+                $query2 = "INSERT INTO Favori (id_client, id_sneakers) VALUES ($id_client, $id_sneakers)";
+                if(mysqli_query($idcon, $query2)){
+                    echo '<div class="confirmation-message">';
+                    echo '<div class="confirmation-message-content">';
+                    echo        '<p>La paire de chaussures a bien été ajoutée à vos favoris.</p>';
+                    echo '</div></div>';            }
+                else{
+                    //Si il y a une erreur avec la requete sql on affiche une erreur
+                    echo '<script>alert("Erreur")</script>';
+                }
+            }
+        }
+?>
     </table>
     <hr>
     <div align="left" style="padding: 20px;">

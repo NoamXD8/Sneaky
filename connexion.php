@@ -1,3 +1,5 @@
+<!-- BOULZE et GROSSMAN -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,6 +28,7 @@
     <!-- Container -->
     <div class="container">
         <h2>Connexion</h2>
+        <!-- Formulaire de connexion -->
         <form action="connexion_traitement.php" method="POST" name="connexion">
         <!-- Adresse Mail -->
             <label class="label" for="email">Adresse Mail : </label><br>
@@ -35,9 +38,10 @@
             <label class="label" for="password">Mot de passe :</label><br>
             <input type="password" id="password" name="password" class="input" placeholder="Saissiez votre mot de passe" required><br>
 
-        <!-- Boutom -->
+        <!-- Bouton -->
             <button class="boutonform" type="submit" value="login">Connexion</button><br>
 
+        <!-- Lien pour s'inscrire -->
             <p class="label">Vous n'êtes pas encore inscrit ?  <a href="inscription.html">S'inscrire</p>
         </form>
     </div>

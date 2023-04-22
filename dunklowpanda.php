@@ -1,3 +1,5 @@
+<!-- BOULZE et GROSSMAN -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,6 +10,7 @@
     <link rel="stylesheet" href="siteweb.css">
     <script src="https://kit.fontawesome.com/5d94f6b61f.js" crossorigin="anonymous"></script>
     <?php
+
 session_start();
 //Connexion à la BDD
 $host = 'localhost';
@@ -32,10 +35,10 @@ if(!$idcon){
             <a href="sneakers.html" class="lien"><p class="link">Sneakers</p></a>
             <a href="contact.html" class="lien"><p class="link">Nous contacter</p></a>
 
-            <form>
-               <input type="search" placeholder="Rechercher">
+            <form method="GET" action="search_traitement.php">
+               <input type="search" name="search" placeholder="Rechercher">
             </form>
-            <p><i class="fa-sharp fa-solid fa-heart "></i></p>
+            <a class="lien" href="favori.php"><p><i class="fa-sharp fa-solid fa-heart "></i></p></a>
             <a class="lien" href="panier.php"><p><i class="fa-sharp fa-solid fa-cart-shopping"></i></p></a>
             <a class="lien" href="connexion.php"><p><i class="fa-solid fa-user"></i></p></a>
         </div>
@@ -44,7 +47,7 @@ if(!$idcon){
     <!-- End nav bar -->
     <table>
         <tr>
-            <td rowspan="5"><img src="Images/dunklowpanda.webp" style="width: 90%;"></td>
+            <td rowspan="6"><img src="Images/dunklowpanda.webp" style="width: 90%;"></td>
             <td>Dunk Low Panda</td>
         </tr>
 
@@ -57,17 +60,16 @@ if(!$idcon){
     </tr>
         <tr>
         <form method="post">
-            <td><select class="input" name="taille" id="taille">
-                <option value="38">38</option>
-                <option value="39">39</option>
-                <option value="40">40</option>
-                <option value="41">41</option>
-                <option value="42">42</option>
-                <option value="43">43</option>
-                <option value="44">44</option>
-                <option value="45">45</option>
+        <?php 
+            $requet_stock= "SELECT Taille, Stock FROM Sneakers WHERE Nom='Dunk Low Panda'";
+            $result = mysqli_query($idcon, $requet_stock); 
+            echo '<td><select class="input" name="taille" id="taille">';     
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo '<option value="' . $row['Taille'] . '">' . $row['Taille'] . ' - Stock : ' . $row['Stock'] . '</option>';
 
-            </select></td>
+            }
+            echo '</select></td>';
+            ?>
         </tr>
                 
         <!-- Ajouter panier -->
@@ -90,14 +92,75 @@ if(!$idcon){
 					$result = $idcon->query($requet);
 					$sql=mysqli_fetch_row($result);
 
-                    //Cette ligne ajoute l'ID de la paire de chaussures sélectionnée à un tableau stocké dans une variable de session 
-                    /*if(!isset($_SESSION['tableau'])) {
-                        $_SESSION['tableau'] = array();
-                    }*/
 					array_push($_SESSION['tableau'], $sql[0]);
                     //header('refresh: 1 ; url= panier.php');
 					}
 			?>
+        </td></tr>
+
+        <!-- Ajout en Favori -->
+        <tr><td>
+            <form method="post">
+                <input type="hidden" name="id_sneakers" value="<?php echo $id_sneakers; ?>">
+                <button type="submit" class="boutonfavori" name="add_to_favorites"><i class="fa-regular fa-heart fa-2x"></i></button>
+             <script>
+                    const button = document.querySelector('button');
+                    const heartIcon = document.querySelector('i.fa-heart');
+                    
+                    button.addEventListener('click', () => {
+                    heartIcon.classList.toggle('fa-regular');
+                    heartIcon.classList.toggle('fa-solid');
+                    });
+            </script>
+             </form>
+        </td></tr>
+
+<?php 
+        // Vérifie si le formulaire a été soumis
+        if (isset($_POST['add_to_favorites'])) {
+            // Vérifie si la taille a été sélectionnée
+            if (isset($_POST["taille"])) {
+                $taille=$_POST["taille"];
+            
+        // Requête pour récupérer l'id de la sneaker sélectionnée en fonction de son nom et de la taille
+            $requet= "SELECT id_sneakers FROM Sneakers WHERE Nom ='Dunk Low Panda' and Taille = '$taille'";
+            //mysqli_query permet d'éxécuter une requete sur la base de données
+            $result = mysqli_query($idcon, $requet);
+            //On récipère l'id sneakers
+            $id_sneakers=mysqli_fetch_row($result)[0];
+        }
+
+            // Récupérer l'id du membre à partir de l'email stocké dans la session
+            $email = $_SESSION['email'];
+            $select = "SELECT id_client FROM Client WHERE Email = '$email'";
+            $result = mysqli_query($idcon, $select);
+            $id_client = mysqli_fetch_row($result)[0];
+
+            // Vérifiez si la paire de chaussures est déjà dans les favoris
+            $query1 = "SELECT * FROM Favori WHERE id_sneakers = $id_sneakers AND id_client = $id_client";
+            $result = mysqli_query($idcon, $query1);
+            if (mysqli_num_rows($result) > 0) {
+                // Si La paire de chaussures est déjà dans les favoris
+                echo '<div class="confirmation-message">
+                        <div class="confirmation-message-content">
+                            <p>Cette paire de chaussures est déjà dans vos favoris.</p>
+                    </div></div>';
+            } else {
+                // Si La paire de chaussures n'est pas encore dans les favoris
+                $query2 = "INSERT INTO Favori (id_client, id_sneakers) VALUES ($id_client, $id_sneakers)";
+                // Si la requête est exécutée avec succès
+                if(mysqli_query($idcon, $query2)){
+                    //on affiche un message de confirmation
+                    echo '<div class="confirmation-message">';
+                    echo '<div class="confirmation-message-content">';
+                    echo        '<p>La paire de chaussures a bien été ajoutée à vos favoris.</p>';
+                    echo '</div></div>';            }
+                else{
+                    echo '<script>alert("Erreur")</script>';
+                }
+            }
+        }
+?>
     </table>
     <hr>
     <!-- Description -->

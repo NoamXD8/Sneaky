@@ -1,3 +1,4 @@
+<!-- BOULZE et GROSSMAN -->
 <head>
 <link rel="stylesheet" type="text/css" href="siteweb.css"/>
 </head>
@@ -30,13 +31,13 @@ if (mysqli_num_rows($result) == 1) {
     // Enregistrement de l'email dans la session
     $_SESSION['email'] = $email;
 
-    // Redirection vers la page d'accueil
+    // Affichage message de confirmation et redirection vers la page d'accueil
     echo '<div class="confirmation-message">';
     echo '<div class="confirmation-message-content">';
     echo       '<h2>Vous êtes bien connecté.</h2>';
     echo        '<p>Vous allez être redirigé automatiquement vers la page profil.</p>';
     echo '</div></div>';
-    header('refresh: 3 ; url=profil.php');
+    header('refresh: 4 ; url=profil.php');
 } else {
     // Si les identifiants sont invalides, on affiche un message d'erreur
     echo '<div class="unconfirmation-message">';
@@ -44,7 +45,7 @@ if (mysqli_num_rows($result) == 1) {
     echo       '<h2>Identifiant invalides.</h2>';
     echo        '<p>Vous allez être redirigé automatiquement vers la page de connexion.</p>';
     echo '</div></div>';
-    header('refresh: 3 ; url=connexion.php');
+    header('refresh: 4 ; url=connexion.php');
 }
 
 // Fermeture de la connexion à la base de données
