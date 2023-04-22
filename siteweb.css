@@ -1,3 +1,4 @@
+/* BOULZE et GROSSMAN */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 body{
@@ -432,3 +433,46 @@ td{
 
 
 /* Fin Panier */
+
+
+/* Favori */
+.favori-container {
+    margin: 20px;
+    margin-top: 20px;   /* Margin top permet de créer de l'espace au dessus */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+  }
+
+.favori-list{
+    list-style: none;
+    display: flex;
+    /*  wrap sert a empiler si resolutions trop petites */
+    flex-wrap: wrap;
+}
+
+.favori-list .favori-item{
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.favori-item img{
+    width: 33%;
+}
+
+/* Fin Favori */
+
+/* Bouton Favori */
+
+/* Permet d'enlever le style du bouton */
+.boutonfavori{
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Fin bouton favori */
