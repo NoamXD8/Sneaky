@@ -1,3 +1,5 @@
+<!-- BOULZE et GROSSMAN -->
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,10 +21,10 @@
             <a href="sneakers.html" class="lien"><p class="link">Sneakers</p></a>
             <a href="contact.html" class="lien"><p class="link">Nous contacter</p></a>
 
-            <form>
-               <input type="search" placeholder="Rechercher">
-            </form>
-            <p><i class="fa-sharp fa-solid fa-heart "></i></p>
+            <form method="GET" action="search_traitement.php">
+                <input type="search" name="search" placeholder="Rechercher">
+             </form>
+            <a class="lien" href="favori.php"><p><i class="fa-sharp fa-solid fa-heart "></i></p></a>
             <a class="lien" href="panier.php"><p><i class="fa-sharp fa-solid fa-cart-shopping"></i></p></a>
             <a class="lien" href="connexion.php"><p><i class="fa-solid fa-user"></i></p></a>
         </div>
