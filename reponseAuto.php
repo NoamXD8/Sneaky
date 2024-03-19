@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="siteweb.css" />
 </head>
 <body>
-    <a href="Index.html" class='lien'><button class='boutonauto' type="submit">Retour à la page principale</a>
+    <a href="index.html" class='lien'><button class='boutonauto' type="submit">Retour à la page principale</a>
     <?php 
     //Connexion à la BDD
     $host = 'localhost';

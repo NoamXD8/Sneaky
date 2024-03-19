@@ -9,6 +9,6 @@
     echo       '<h2>Vous êtes bien déconnecté.</h2>';
     echo        '<p>Vous allez être redirigé automatiquement vers la page principale.</p>';
     echo '</div></div>';
-    header('refresh: 3 ; url=Index.html'); //redirige vers la page prinipal
+    header('refresh: 3 ; url=index.html'); //redirige vers la page prinipal
     exit();
 ?>

@@ -18,7 +18,7 @@
         <p>Vous aller être redirigé vers la page principale</p>
     </div></div>
     <?php 
-        header('refresh: 10 ; url=Index.html');
+        header('refresh: 10 ; url=index.html');
     ?>
 </body>
 </html>

@@ -11,7 +11,7 @@
 <body>
 <!-- Permet d'avoir le logo en haut pour pouvoir revenir à la page principale -->
 <nav class="navinscription">
-    <a  class="sneaky" href="Index.html"><h1>SNEAKYY</h1></a>
+    <a  class="sneaky" href="index.html"><h1>SNEAKYY</h1></a>
 </nav>
 <?php 
 //Lancement de session et connexion à la BDD

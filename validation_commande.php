@@ -53,7 +53,7 @@ if(mysqli_query($idcon, $insert)){
         echo "<p>Votre numéro de commande est le suivant : ". $id_commande . "</p>"; // Afficher le numéro de commande
         echo        '<p>Vous allez être redirigé automatiquement vers la page index.</p>';
         echo '</div></div>';
-        header('refresh: 10 ; url=Index.html'); 
+        header('refresh: 10 ; url=index.html'); 
     }
     else{
     echo '<div class="unconfirmation-message">Il y a eu un problème de stock</div>';}

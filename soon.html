@@ -13,7 +13,7 @@
 <body>
     <!-- Bare de naviguation -->
     <nav>
-        <a  class="sneaky" href="Index.html"><h1>SNEAKYY</h1></a>
+        <a  class="sneaky" href="index.html"><h1>SNEAKYY</h1></a>
         <!-- Pour différents trucs en haut -->
         <div class="onglet">
             <a href="ajout_produit.html" class="lien"><p class="link">Ajout Produit</p></a>

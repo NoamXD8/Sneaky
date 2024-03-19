@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav>
-    <a  class="sneaky" href="Index.html"><h1>SNEAKYY</h1></a>
+    <a  class="sneaky" href="index.html"><h1>SNEAKYY</h1></a>
     </nav>
 
     <?php 
