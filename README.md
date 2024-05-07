@@ -17,3 +17,5 @@ Before everything read Issues and Wiki ! Thanks !
 
 
 NoamXD8
+
+Petit test de notification discord
